@@ -1,25 +1,37 @@
+import { Contact } from 'lucide-react'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './Footer'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import SocietyInfo from './SocietyInfo'
+import Home from './home'
 
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const toggleSidebar = () => setIsSidebarOpen(s => !s)
 
   return (
-    <div className='flex h-screen flex-col'>
+    <div className="flex h-screen flex-col overflow-hidden">
+      {/* Header */}
       <Header toggleSidebar={toggleSidebar} />
-      <div className='flex flex-1'>
+
+      {/* Content Area */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Sidebar (toggles on/off) */}
         {isSidebarOpen && <Sidebar />}
-        <main className='flex-1 p-4 overflow-y-auto'>
+
+        {/* Main content scrollable only */}
+        <main className="flex-1 p-4 overflow-y-auto bg-gray-50">
           <Routes>
-            <Route path='/' element={<SocietyInfo />} />
+            <Route path="/" element={<SocietyInfo />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>
+
+      {/* Footer */}
       <Footer />
     </div>
   )
