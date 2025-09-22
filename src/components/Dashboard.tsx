@@ -1,11 +1,14 @@
 import { Contact } from 'lucide-react'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import CommunityDetails from './CommunityDetails'
 import Footer from './Footer'
 import Header from './Header'
+import Home from './home'
+import MaintenanceDetails from './MaintenanceDetails'
+import MaintenanceHistory from './MaintenanceHistory'
 import Sidebar from './Sidebar'
 import SocietyInfo from './SocietyInfo'
-import Home from './home'
 
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -27,6 +30,9 @@ export default function Dashboard() {
             <Route path="/" element={<SocietyInfo />} />
             <Route path="/home" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/MaintenanceHistory" element={<MaintenanceHistory />} />
+            <Route path="/communityDetails" element={<CommunityDetails />} />
+            <Route path="/MaintenanceHistory/:id" element={<MaintenanceDetails />} />
           </Routes>
         </main>
       </div>

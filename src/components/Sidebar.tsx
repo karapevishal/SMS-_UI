@@ -20,6 +20,16 @@ export default function Sidebar() {
       path: "/dashboard/contact",
       icon: <Phone size={18} />,
     },
+    {
+      name: "Maintenance History",
+      path: "/dashboard/MaintenanceHistory",
+      icon: <Phone size={18} />,
+    },
+    {
+      name: "Community Details",
+      path: "/dashboard/communityDetails",
+      icon: <Phone size={18} />,
+    },
   ];
 
   return (
